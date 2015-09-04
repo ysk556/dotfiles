@@ -26,22 +26,23 @@ if has('vim_starting')
   call neobundle#end()
 endif
 
+
 filetype plugin indent on
 syntax on
 NeoBundleCheck
 
+" 文字コード
+set encoding=utf-8
 " スワップファイルを作らない
 set noswapfile
 " バックアップファイルを作成しない
 set nobackup
-" undoファイル(un~)を作らない
+" undoファイルを作らない
 set noundofile
-" 全ての数を10進数として扱う
-set nrformats=
 " 行番号を表示する
 set number
 " ビジュアルモードで選択したテキストがクリップボードに入る
-"set guioptions+=a
+set guioptions+=a
 " カラースキーマ
 colorscheme desert
 " 新しい行のインデントを現在行と同じにする。
@@ -95,6 +96,8 @@ set noerrorbells
 set noswapfile
 " カーソルが何行目の何列目に置かれているかを表示する
 set ruler
+" ステータスラインに文字コードと改行コードを表示
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 """"""""""""""""""""
 " Unite.vimの設定
 """"""""""""""""""""
@@ -121,9 +124,9 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 " fugitive.vimの設定
 """"""""""""""""""""
 " Gitを便利に使う
-" autocmd QuickFixCmdPost *grep* cwindow
+autocmd QuickFixCmdPost *grep* cwindow
 " ステータス行に現在のgitブランチを表示する
-" set statusline+=%{fugitive#statusline()}
+set statusline+=%{fugitive#statusline()}
 """"""""""""""""""""
 " vim-indent-guides.vimの設定
 """"""""""""""""""""
@@ -157,15 +160,11 @@ autocmd VimEnter * execute 'NERDTree'
 map <C-l> gt
 map <C-h> gT
 """"""""""""""""""""
-" バッファを移動するためのキーマッピング
+" バッファの移動
 """"""""""""""""""""
-" 前のバッファ
 nnoremap <silent> [b :bprevious<CR>
-" 次のバッファ
 nnoremap <silent> ]b :bnext<CR>
-" 最初のバッファ
 nnoremap <silent> [B :bfirst<CR>
-" 最後のバッファ
 nnoremap <silent> ]B :blast<CR>
 """"""""""""""""""""
 " emmet-vim

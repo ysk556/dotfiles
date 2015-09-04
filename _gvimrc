@@ -12,11 +12,4 @@ set novisualbell
 colorscheme desert
 
 " フォント設定
-set guifont=Ricty:h12:cSHIFTJIS
-"----------------------------------------
-" ウインドウに関する設定:
-"----------------------------------------
-" ウインドウの幅
-set columns=130
-" ウインドウの高さ
-set lines=50
+set guifont=Ricty:h12
